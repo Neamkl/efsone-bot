@@ -1,6 +1,6 @@
 const commando = require('discord.js-commando');
 const oneLine = require('common-tags').oneLine;
-let afkUsers = require('../../bin/afk.json');
+let afkUsers = require('../../komutlar/afk.json');
 const { RichEmbed } = require('discord.js')
 
 module.exports = class AFKCommand extends commando.Command {
