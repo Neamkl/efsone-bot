@@ -7,16 +7,6 @@ require('./util/eventLoader')(client);
 
 var prefix = ayarlar.prefix;
 
-const log = message => {
-  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] ${message}`);
-};
-
-client.commands = new Discord.Collection();
-client.aliases = new Discord.Collection();
-    client.commands.set(props.help.name, props);
-    props.conf.aliases.forEach(alias => {
-      client.aliases.set(alias, props.help.name);
-});
 
 client.reload = command => {
   return new Promise((resolve, reject) => {
