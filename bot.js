@@ -13,7 +13,7 @@ const log = message => {
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
-    let props = require(`./komutlar/$`);
+    let props = require(`./komutlar/`);
     client.commands.set(props.help.name, props);
     props.conf.aliases.forEach(alias => {
       client.aliases.set(alias, props.help.name);
