@@ -19,7 +19,6 @@ fs.readdir('./komutlar/', (err, files) => {
   log(`${files.length} Command Loading`);
   files.forEach(f => {
     let props = require(`./komutlar/${f}`);
-    log(`Loading Commands ${props.help.name}.`);
     client.commands.set(props.help.name, props);
     props.conf.aliases.forEach(alias => {
       client.aliases.set(alias, props.help.name);
