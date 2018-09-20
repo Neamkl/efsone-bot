@@ -15,10 +15,10 @@ const log = message => {
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 fs.readdir('./komutlar/', (err, files) => {
-  if (err) console.error(err);
-  log(`${files.length} Command Loading`);
-  files.forEach(f => {
     let props = require(`./komutlar/${f}`);
+    client.commands.set(props.help.name, props);
+    props.conf.aliases.forEach(alias => {
+      client.aliases.set(alias, props.help.name);
     });
   });
 });
@@ -26,7 +26,7 @@ fs.readdir('./komutlar/', (err, files) => {
 client.reload = command => {
   return new Promise((resolve, reject) => {
     try {
-      delete require.cache[require.resolve(`./komutlar${command}`)];
+      delete require.cache[require.resolve(`./commands/${command}`)];
       let cmd = require(`./komutlar/${command}`);
       client.commands.delete(command);
       client.aliases.forEach((cmd, alias) => {
