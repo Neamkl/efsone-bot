@@ -64,6 +64,17 @@ client.on('message', msg => {
     msg.reply('Aleyküm selam,  Hoşgeldin :D');
   }
 });
+
+
+
+lient.on('message', msg => {
+  if (msg.content.toLowerCase() === '?hypersquad') {
+    msg.reply('En İyi Bot Ve Sunucu!');
+  }
+});
+
+
+
 client.on('message', msg => {
   if (msg.content.toLowerCase() === 'hayırsız bot') {
     msg.reply('**Öyle Olsun :sob: :sob:** ');
