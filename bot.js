@@ -67,7 +67,7 @@ client.on('message', msg => {
 
 
 
-lient.on('message', msg => {
+client.on('message', msg => {
   if (msg.content.toLowerCase() === '?hypersquad') {
     msg.reply('En İyi Bot Ve Sunucu!');
   }
